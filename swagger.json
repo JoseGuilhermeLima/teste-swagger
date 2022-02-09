@@ -1,0 +1,100 @@
+{
+    "openapi": "3.0.01",
+    "info": {
+        "title": "Messages API",
+        "description": "Documentation from MEssages api",
+        "version": "1.0.0"
+    },
+    "basepath": "/",
+    "paths": {
+        "list": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Return all messages created in the datebase",
+                "description": "Return all messages created in the datebase",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "get/{id}": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Return messages from the right id",
+                "description": "ahusdhausnsa asdijaod",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "description": "The task id that is necessary to find the right task",
+                        "name": "id",
+                        "type": "string",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "/create": {
+            "post": {
+                "tags": [
+                    "Creation"
+                ],
+                "description": "Create a new task",
+                "summary": "Create a new task",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }                    }                
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "400": {
+                        "description": "Task already exist"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "example": {
+                    "title": "test",
+                    "description": "Lorem ipsum",
+                    "date": "2022-02-25 10:00:00"
+                }
+            }
+        }
+    }
+}
